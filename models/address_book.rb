@@ -1,3 +1,4 @@
+
 # address book model
 
 require_relative 'entry'
@@ -32,5 +33,22 @@ class AddressBook
 
        end
 
+       def remove_entry(name, phone_number, email)
+
+         delete_index = 0
+
+         entries.each do |remove_entry|
+
+           if name == remove_entry.name && phone_number == remove_entry.phone_number && email == remove_entry.email
+
+             entries.delete_at(delete_index)
+
+           end
+
+           delete_index += 1
+
+         end
+
+      end
 
 end
