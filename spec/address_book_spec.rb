@@ -51,8 +51,8 @@ require_relative '../models/address_book'
 
       end
 
+##############
 
-      # Test that AddressBook's .import_from_csv() method is working as expected
       describe "#import_from_csv" do
             it "imports the correct number of entries" do
 
@@ -101,13 +101,6 @@ require_relative '../models/address_book'
 
 ###############
 
-                      # Second test set from .import_from_csv()
-                      #Al,555-555-5416,big_al@blocmail.com
-                      #Joe Bob,555-555-3661,joebob@blocmail.com
-                      #Sally Smith,555-555-4647,sally.smith@blocmail.com
-                      #Ann,555-555-2037,ann@blocmail.com
-
-                      # Test second .import_from_csv()
 
           describe "#import from second csv file entries_2" do
 
@@ -115,34 +108,37 @@ require_relative '../models/address_book'
                         book.import_from_csv("entries_2.csv")
                         book_size = book.entries.size
                         expect(book_size).to eq 4
-                        #puts "#{book_size}"
                 end
 
                 it "imports the 1st entry" do
-
-                        book.import_from_csv("entries_2.csv")
-                        entry_one = book.entries[0]
-                        #puts "#{entry_one}"
-
-                        check_entry(entry_one, "Al", "555-555-5416", "big_al@blocmail.com")
+                    book.import_from_csv("entries_2.csv")
+                    entry_one = book.entries[0]
+                    check_entry(entry_one, "Al", "555-555-5416", "big_al@blocmail.com")
                 end
 
                 it "imports the 2nd entry" do
                     book.import_from_csv("entries_2.csv")
-                      # Check the second entry
                     entry_two = book.entries[1]
-                    check_entry(entry_two, "Joe Bob", "555-555-3661", "joebob@blocmail.com")
+                    check_entry(entry_two, "Ann", "555-555-2037", "ann@blocmail.com")
                 end
 
+                it "imports the 3rd entry" do
+                    book.import_from_csv("entries_2.csv")
+                    entry_one = book.entries[2]
+                    check_entry(entry_one, "Joe Bob", "555-555-3661", "joebob@blocmail.com")
+                end
 
-                #Joe Bob,555-555-3661,joebob@blocmail.com
-                #Sally Smith,555-555-4647,sally.smith@blocmail.com
-                #Ann,555-555-2037,ann@blocmail.com
+                it "imports the 4th entry" do
+                    book.import_from_csv("entries_2.csv")
+                    entry_two = book.entries[3]
+                    check_entry(entry_two, "Sally Smith", "555-555-4647", "sally.smith@blocmail.com")
+                end
+
 
 
         end
 
-        ###########
+###########
 
          describe "#remove_entry" do
 
