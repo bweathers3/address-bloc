@@ -124,6 +124,14 @@ class AddressBook
    end
 
 ##############
+##############
+
+          def good_bye_all_entries
+
+                self.entries = []
+
+          end
+###############
 
 
 end

@@ -195,6 +195,24 @@ require_relative '../models/address_book'
 
 
 ###########
+
+          context "good bye all entries" do
+
+            it "should delte all of the book entries" do
+                book.add_entry('Bill', '555-555-4854', 'bill@blocmail.com')
+                book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+                book.add_entry('Paul Lovelace', '010.012.1814', 'paul@lovelace.com')
+                book.add_entry('Sue', '555-555-4844', 'Sue@blocmail.com')
+                expect(book.entries.size).to eq(4)
+
+                book.good_bye_all_entries
+
+                expect(book.entries.size).to eq(0)
+            end
+
+          end
+
+
 ###########
 
 
