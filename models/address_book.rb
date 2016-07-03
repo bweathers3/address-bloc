@@ -15,6 +15,18 @@ class AddressBook
 
     end
 
+    ##############
+
+    def good_bye_all_entries
+
+        entries.delete_if { |item| item != nil}
+
+    end
+
+    ###############
+
+
+
 
        def add_entry(name, phone_number, email)
 
@@ -124,14 +136,7 @@ class AddressBook
    end
 
 ##############
-##############
 
-          def good_bye_all_entries
-
-                self.entries = []
-
-          end
-###############
 
 
 end

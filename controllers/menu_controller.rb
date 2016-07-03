@@ -53,17 +53,18 @@ require_relative '../models/address_book'
               puts "Good-bye!"
               exit(0)
             when 7
-                system "clear"
+              system "clear"
+                  print "Please confirm you wish to delete all entries, type: YES "
 
-                print "Please confirm you wish to delete all entries, type: "YES" "
-                yes_delete = gets.chomp
+                  yes_delete = gets.chomp
 
-                  if yes_delete == "YES"
-                      good_bye_all_entries
-                  end
+                    if yes_delete == "YES"
+                      address_book.good_bye_all_entries
+                      puts "All entries have been deleted"
+                    end
 
-                puts "All entries have been deleted"
                 main_menu
+
             else
               system "clear"
               puts "Sorry, that is not a valid input"
